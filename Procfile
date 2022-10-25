@@ -1,2 +1,2 @@
-web: npm run start:prod
-release: echo '' > .env && npm run migration:run && npm run seed:run
+web: yarn start:prod
+release: echo '' > .env && yarn migration:run && yarn seed:run
