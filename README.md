@@ -1,8 +1,8 @@
-# NestJS REST API boilerplate 🇺🇦
+# Nhanderu REST API
 
 ## Description
 
-NestJS REST API boilerplate for typical project
+This project contains the backend code and REST API of Nhanderu.
 
 ## Table of Contents
 
@@ -33,9 +33,9 @@ NestJS REST API boilerplate for typical project
 ## Quick run
 
 ```bash
-git clone --depth 1 https://github.com/brocoders/nestjs-boilerplate.git my-app
-cd my-app/
-cp env-example .env
+git clone --depth 1 https://github.com/luigifsl/nhanderu-backend.git nhanderu-backend
+cd nhanderu-backend/
+cp .env.example .env
 docker compose up -d
 ```
 
@@ -45,12 +45,12 @@ For check status run
 docker compose logs
 ```
 
-## Comfortable development
+## Local development
 
 ```bash
-git clone --depth 1 https://github.com/brocoders/nestjs-boilerplate.git my-app
-cd my-app/
-cp env-example .env
+git clone --depth 1 https://github.com/luigifsl/nhanderu-backend.git nhanderu-backend
+cd nhanderu-backend/
+cp .env.example .env
 ```
 
 Change `DATABASE_HOST=postgres` to `DATABASE_HOST=localhost`
@@ -64,13 +64,13 @@ docker compose up -d postgres adminer maildev redis
 ```
 
 ```bash
-npm install
+yarn install
 
-npm run migration:run
+yarn migration:run
 
-npm run seed:run
+yarn seed:run
 
-npm run start:dev
+yarn start:dev
 ```
 
 ## Links
@@ -79,56 +79,53 @@ npm run start:dev
 - Adminer (client for DB): http://localhost:8080
 - Maildev: http://localhost:1080
 
-## Automatic update of dependencies
-
-If you want to automatically update dependencies, you can connect [Renovate](https://github.com/marketplace/renovate) for your project.
 
 ## Database utils
 
 Generate migration
 
 ```bash
-npm run migration:generate -- src/database/migrations/CreateNameTable 
+yarn migration:generate -- src/database/migrations/CreateNameTable 
 ```
 
 Run migration
 
 ```bash
-npm run migration:run
+yarn migration:run
 ```
 
 Revert migration
 
 ```bash
-npm run migration:revert
+yarn migration:revert
 ```
 
 Drop all tables in database
 
 ```bash
-npm run schema:drop
+yarn schema:drop
 ```
 
 Run seed
 
 ```bash
-npm run seed:run
+yarn seed:run
 ```
 
 ## Tests
 
 ```bash
 # unit tests
-npm run test
+yarn test
 
 # e2e tests
-npm run test:e2e
+yarn test:e2e
 ```
 
 ## Tests in Docker
 
 ```bash
-docker compose -f docker-compose.ci.yaml --env-file env-example -p ci up --build --exit-code-from api && docker compose -p ci rm -svf
+docker compose -f docker-compose.ci.yaml --env-file .env.example -p ci up --build --exit-code-from api && docker compose -p ci rm -svf
 ```
 
 ## Test benchmarking
